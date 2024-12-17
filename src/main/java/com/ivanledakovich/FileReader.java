@@ -1,43 +1,35 @@
 package com.ivanledakovich;
 
+import org.apache.commons.io.FileUtils;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import org.apache.log4j.Logger;
 
 /**
  * This class contains methods for reading files
  *
  * @author Ivan Ledakovich
- *
  */
-
 public class FileReader {
+
+    static final private Logger logger = Logger.getLogger(FileReader.class);
 
     /**
      * This method receives file path and returns the file in form of a String
      *
      * @param filePath String, containing path to base file
      * @return file data in form of a String
-     *
-     * @author Ivan Ledakovich
-     *
      */
-
-    public static String readFile(String filePath) {
-        File myObj = new File(filePath);
+    public static String readFile(String filePath){
         String data = "";
-        Scanner myReader = null;
         try {
-            myReader = new Scanner(myObj);
-        } catch (FileNotFoundException e) {
+            data = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            ErrorNotifier.invalidInputFilesNotification();
             throw new RuntimeException(e);
         }
-        while (myReader.hasNextLine()) {
-            String line = myReader.nextLine();
-            System.out.println(line);
-            data += line;
-        }
-        myReader.close();
+        System.out.println(data);
         return data;
     }
 }

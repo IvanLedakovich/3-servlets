@@ -7,23 +7,16 @@ import java.awt.image.BufferedImage;
  * This class contains the method used for BufferImage type object creation from a String
  *
  * @author Ivan Ledakovich
- *
  */
-
 public class ImageCreator {
 
     /**
      * This method converts the data in form of String into an object of type BufferedImage
      *
      * @param data data from the initial .txt file
-     *
      * @return the object of type BufferedImage created from inout data
-     *
-     * @author Ivan Ledakovich
-     *
      */
-
-    public static BufferedImage createImage(String data) {
+    public static BufferedImage createImage(String data){
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
         Font font = new Font("Arial", Font.PLAIN, 48);

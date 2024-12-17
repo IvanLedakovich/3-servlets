@@ -63,3 +63,4 @@ replay_pid*
 ### Other ###
 *.iml
 *.bat
+/.smarttomcat/

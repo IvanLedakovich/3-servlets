@@ -64,3 +64,4 @@ replay_pid*
 *.iml
 *.bat
 /.smarttomcat/
+/src/main/webapp/uploadedFiles/

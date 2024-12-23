@@ -1,16 +1,11 @@
 package com.ivanledakovich;
 
-import org.apache.log4j.Logger;
-
 /**
  * This class contains the method which prints out the user manual in the terminal
  *
  * @author Ivan Ledakovich
  */
 public class Help {
-
-    static final private Logger logger = Logger.getLogger(Help.class);
-
 
     /**
      * This method prints out user's manual in terminal

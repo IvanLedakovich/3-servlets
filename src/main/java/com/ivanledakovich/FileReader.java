@@ -1,10 +1,10 @@
 package com.ivanledakovich;
 
 import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import org.apache.log4j.Logger;
 
 /**
  * This class contains methods for reading files
@@ -12,8 +12,6 @@ import org.apache.log4j.Logger;
  * @author Ivan Ledakovich
  */
 public class FileReader {
-
-    static final private Logger logger = Logger.getLogger(FileReader.class);
 
     /**
      * This method receives file path and returns the file in form of a String

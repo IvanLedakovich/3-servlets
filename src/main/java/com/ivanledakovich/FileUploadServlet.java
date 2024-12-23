@@ -1,15 +1,14 @@
 package com.ivanledakovich;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(description = "Upload File To The Server", urlPatterns = { "/fileUploadServlet" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, maxFileSize = 1024 * 1024 * 30, maxRequestSize = 1024 * 1024 * 50)
@@ -17,25 +16,18 @@ public class FileUploadServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	public static final String UPLOAD_DIR = "uploadedFiles";
-	public static final String CONVERTED_DIR = "convertedFiles";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		handleRequest(request, response);
-	}
 
-	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String imageExtension = request.getParameter("imageExtension");
+		String saveLocation = request.getParameter("saveLocation");
 
 		String applicationPath = getServletContext().getRealPath(""),
-				uploadPath = applicationPath + File.separator + UPLOAD_DIR,
-				convertedPath = applicationPath + CONVERTED_DIR;
+				uploadPath = applicationPath + File.separator + UPLOAD_DIR;
 
 		File fileUploadDirectory = new File(uploadPath);
 		if (!fileUploadDirectory.exists()) {
 			fileUploadDirectory.mkdirs();
-		}
-		File fileConvertedDirectory = new File(convertedPath);
-		if (!fileConvertedDirectory.exists()) {
-			fileConvertedDirectory.mkdirs();
 		}
 
 		String fileName = "";
@@ -50,10 +42,10 @@ public class FileUploadServlet extends HttpServlet {
 			try {
 				part.write(uploadPath + File.separator + fileName);
 				details.setUploadStatus("Success");
+				fileList.add(details);
 			} catch (IOException ioObj) {
 				details.setUploadStatus("Failure : "+ ioObj.getMessage());
 			}
-			fileList.add(details);
 		}
 
 		request.setAttribute("uploadedFiles", fileList);
@@ -61,12 +53,11 @@ public class FileUploadServlet extends HttpServlet {
 		session.setAttribute("uploadedFiles", fileList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/fileuploadResponse.jsp");
 		dispatcher.forward(request, response);
-		System.out.println(convertedPath);
-		Main.main(uploadPath, convertedPath);
+		MainHandler.mainHandler(imageExtension, uploadPath, saveLocation);
 	}
 
 	private String extractFileName(Part part) {
-		String fileName = "", 
+		String fileName = "",
 				contentDisposition = part.getHeader("content-disposition");
 		String[] items = contentDisposition.split(";");
 		for (String item : items) {

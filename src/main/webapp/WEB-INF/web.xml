@@ -5,4 +5,8 @@
       <welcome-file>fileupload.jsp</welcome-file>
    </welcome-file-list>
 
+   <listener>
+      <listener-class>com.ivanledakovich.AppServletContextListener</listener-class>
+   </listener>
+
 </web-app>

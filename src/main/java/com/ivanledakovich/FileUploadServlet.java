@@ -18,7 +18,6 @@ public class FileUploadServlet extends HttpServlet {
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String imageExtension = request.getParameter("imageExtension");
 		String saveLocation = request.getParameter("saveLocation");
 
@@ -28,6 +27,11 @@ public class FileUploadServlet extends HttpServlet {
 		File fileUploadDirectory = new File(uploadPath);
 		if (!fileUploadDirectory.exists()) {
 			fileUploadDirectory.mkdirs();
+		}
+
+		File fileSaveDirectory = new File(saveLocation);
+		if (!fileSaveDirectory.exists()) {
+			fileSaveDirectory.mkdirs();
 		}
 
 		String fileName = "";

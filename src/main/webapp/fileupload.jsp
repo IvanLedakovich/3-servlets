@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="myEnvironment" scope="application" type="java.util.Map"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,13 +19,16 @@
 	                <label>Upload File(s)</label><span id="colon">: </span><input id="fileAttachment" type="file" name="fileUpload" multiple="multiple" />
 	                <span id="fileUploadErr">Please Upload A File!</span>
                 	<label>Image Extension</label><span id="colon1">: </span><input id="imageExtension" type="text" name="imageExtension"/><br>
-                	<label>Save Location</label><span id="colon2">: </span><input id="saveLocation" type="text" name="saveLocation"/>
+					<label for="saveLocation">Save Location</label>
+					<select name="saveLocation" id="saveLocation">
+						<c:forEach items="${myEnvironment}" var="location">
+							<option value=${location.value}>${location.value}</option>
+						</c:forEach>
+					</select>
 	                <button id="uploadBtn" type="submit" class="btn btn_primary">Upload</button>
 	            </div>
 	        </form>
 	    </div>
-	    
-	    <!-- List All Uploaded Files -->
 	    <div class="panel">
 	        <a id="allFiles" class="hyperLink" href="<%=request.getContextPath()%>/uploadedFilesServlet">List all uploaded files</a>
 	    </div>

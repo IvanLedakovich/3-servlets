@@ -1,13 +1,13 @@
 package com.ivanledakovich;
 
+import org.apache.log4j.Logger;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import org.apache.log4j.Logger;
 
 /**
  * This class contains the method which writes the generated image

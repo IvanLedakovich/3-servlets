@@ -1,6 +1,6 @@
 package com.ivanledakovich.servlets;
 
-import com.ivanledakovich.logic.MainHandler;
+import com.ivanledakovich.logic.ThreadStarter;
 import com.ivanledakovich.logic.UploadDetail;
 
 import javax.servlet.RequestDispatcher;
@@ -60,7 +60,7 @@ public class FileUploadServlet extends HttpServlet {
 		session.setAttribute("uploadedFiles", fileList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/fileuploadResponse.jsp");
 		dispatcher.forward(request, response);
-		MainHandler.mainHandler(imageExtension, uploadPath, saveLocation);
+		ThreadStarter.threadStarter(imageExtension, uploadPath, saveLocation);
 
 	}
 

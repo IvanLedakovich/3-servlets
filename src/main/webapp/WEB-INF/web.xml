@@ -9,4 +9,19 @@
       <listener-class>com.ivanledakovich.AppServletContextListener</listener-class>
    </listener>
 
+   <error-page>
+      <error-code>404</error-code>
+      <location>/Exception</location>
+   </error-page>
+
+   <error-page>
+      <exception-type>javax.servlet.ServletException</exception-type>
+      <location>/Exception</location>
+   </error-page>
+
+   <error-page>
+      <exception-type>java.lang.Throwable</exception-type>
+      <location>/Exception</location>
+   </error-page>
+
 </web-app>

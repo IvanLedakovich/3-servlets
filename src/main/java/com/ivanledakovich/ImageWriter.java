@@ -33,7 +33,6 @@ public class ImageWriter {
         } catch (IOException e) {
             ErrorNotifier.fileCouldNotBeWritten();
             logger.error(e);
-            SystemExit.systemExit(0);
         }
     }
 }

@@ -18,7 +18,11 @@
 	            <div class="form">
 	                <label>Upload File(s)</label><span id="colon">: </span><input id="fileAttachment" type="file" name="fileUpload" multiple="multiple" />
 	                <span id="fileUploadErr">Please Upload A File!</span>
-                	<label>Image Extension</label><span id="colon1">: </span><input id="imageExtension" type="text" name="imageExtension"/><br>
+                	<label>Image Extension</label><span id="colon1">: </span>
+					<select name="imageExtension" type="text" id="imageExtension">
+							<option value="png">.png</option>
+							<option value="jpg">.jpg</option>
+					</select><br>
 					<label for="saveLocation">Save Location</label>
 					<select name="saveLocation" id="saveLocation">
 						<c:forEach items="${myEnvironment}" var="location">

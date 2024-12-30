@@ -1,4 +1,4 @@
-package com.ivanledakovich;
+package com.ivanledakovich.logic;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -6,7 +6,7 @@
    </welcome-file-list>
 
    <listener>
-      <listener-class>com.ivanledakovich.AppServletContextListener</listener-class>
+      <listener-class>com.ivanledakovich.servlets.AppServletContextListener</listener-class>
    </listener>
 
    <error-page>

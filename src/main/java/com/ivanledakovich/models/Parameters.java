@@ -1,4 +1,4 @@
-package com.ivanledakovich;
+package com.ivanledakovich.models;
 
 import java.util.ArrayList;
 import java.util.List;

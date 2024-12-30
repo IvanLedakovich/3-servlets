@@ -1,9 +1,6 @@
-package com.ivanledakovich;
+package com.ivanledakovich.servlets;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.ivanledakovich.logic.UploadDetail;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(description = "List The Already Uploaded Files", urlPatterns = { "/uploadedFilesServlet" })
 public class UploadedFilesServlet extends HttpServlet {

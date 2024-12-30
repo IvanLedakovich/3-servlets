@@ -1,4 +1,4 @@
-package com.ivanledakovich;
+package com.ivanledakovich.logic;
 
 /**
  * This class contains the method which prints out the user manual in the terminal

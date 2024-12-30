@@ -1,4 +1,7 @@
-package com.ivanledakovich;
+package com.ivanledakovich.servlets;
+
+import com.ivanledakovich.logic.MainHandler;
+import com.ivanledakovich.logic.UploadDetail;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

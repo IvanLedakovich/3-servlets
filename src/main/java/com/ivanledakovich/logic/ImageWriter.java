@@ -1,4 +1,4 @@
-package com.ivanledakovich;
+package com.ivanledakovich.logic;
 
 import org.apache.log4j.Logger;
 

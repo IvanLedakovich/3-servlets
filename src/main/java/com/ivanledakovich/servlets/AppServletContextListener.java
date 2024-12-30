@@ -1,4 +1,4 @@
-package com.ivanledakovich;
+package com.ivanledakovich.servlets;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

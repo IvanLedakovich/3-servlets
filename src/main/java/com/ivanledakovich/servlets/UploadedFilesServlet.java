@@ -17,8 +17,8 @@ import java.util.List;
 public class UploadedFilesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	public static final String UPLOAD_DIR = "uploadedFiles";
-	public static final String CONVERTED_DIR = "convertedFiles";
+	private static final String UPLOAD_DIR = "uploadedFiles";
+	private static final String CONVERTED_DIR = "convertedFiles";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		handleRequest(request, response);

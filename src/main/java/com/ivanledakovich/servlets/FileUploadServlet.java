@@ -18,7 +18,7 @@ import java.util.List;
 public class FileUploadServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	public static final String UPLOAD_DIR = "uploadedFiles";
+	private static final String UPLOAD_DIR = "uploadedFiles";
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String imageExtension = request.getParameter("imageExtension");

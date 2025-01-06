@@ -13,7 +13,7 @@ import java.io.OutputStream;
 public class FileDownloadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public static int BUFFER_SIZE = 1024 * 100;
+	public static final int BUFFER_SIZE = 1024 * 100;
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

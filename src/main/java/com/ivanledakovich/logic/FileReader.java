@@ -19,7 +19,7 @@ public class FileReader {
      * @param filePath String, containing path to base file
      * @return file data in form of a String
      */
-    public static String readFile(String filePath){
+    public static String readFile(String filePath) {
         String data = "";
         try {
             data = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);

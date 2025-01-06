@@ -26,7 +26,7 @@ public class ImageWriter {
      * @param imageSaveLocation locations to save the image
      * @param textFilePath the path to the initial .txt file
      */
-    public static void writeImage(BufferedImage image, String imageFileType, String imageSaveLocation, String textFilePath){
+    public static void writeImage(BufferedImage image, String imageFileType, String imageSaveLocation, String textFilePath) {
         try {
             if(!Files.exists(Path.of(imageSaveLocation))) throw new IOException();
             ImageIO.write(image, imageFileType, new File(imageSaveLocation + "\\" + textFilePath.substring(textFilePath.lastIndexOf("\\")+1) + "." + imageFileType));

@@ -1,6 +1,5 @@
 package com.ivanledakovich.servlets;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ public class FileDownloadServlet extends HttpServlet {
 	public static int BUFFER_SIZE = 1024 * 100;
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String fileName = request.getParameter("fileName"),
 				applicationPath = getServletContext().getRealPath(""),
 				downloadPath = applicationPath + File.separator + UPLOAD_DIR,

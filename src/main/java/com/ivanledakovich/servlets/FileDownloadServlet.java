@@ -12,14 +12,12 @@ import java.io.OutputStream;
 
 @WebServlet(description = "Download File From The Server", urlPatterns = { "/downloadServlet" })
 public class FileDownloadServlet extends HttpServlet {
-
 	private static final long serialVersionUID = 1L;
 
 	public static int BUFFER_SIZE = 1024 * 100;
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String fileName = request.getParameter("fileName"),
 				applicationPath = getServletContext().getRealPath(""),
 				downloadPath = applicationPath + File.separator + UPLOAD_DIR,
@@ -30,7 +28,6 @@ public class FileDownloadServlet extends HttpServlet {
 		FileInputStream inputStream = null;
 
 		if (file.exists()) {
-
 			String mimeType = "application/octet-stream";
 			response.setContentType(mimeType);
 
@@ -39,7 +36,6 @@ public class FileDownloadServlet extends HttpServlet {
 			response.setHeader(headerKey, headerValue);
 
 			try {
-
 				outStream = response.getOutputStream();
 				inputStream = new FileInputStream(file);
 				byte[] buffer = new byte[BUFFER_SIZE];

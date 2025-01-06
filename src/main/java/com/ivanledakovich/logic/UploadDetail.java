@@ -11,7 +11,6 @@ public class UploadDetail implements Serializable {
 	private long fileSize;
 	private String fileName, uploadStatus;
 
-
 	public long getFileSize() {
 		return fileSize;
 	}

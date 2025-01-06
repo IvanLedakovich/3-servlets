@@ -1,5 +1,7 @@
 package com.ivanledakovich.servlets;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import java.io.OutputStream;
 
 @WebServlet(description = "Download File From The Server", urlPatterns = { "/downloadServlet" })
 public class FileDownloadServlet extends HttpServlet {
+	private static final Logger logger = Logger.getLogger(FileDownloadServlet.class);
 	private static final long serialVersionUID = 1L;
 
 	private static final int BUFFER_SIZE = 1024 * 100;
@@ -44,7 +47,7 @@ public class FileDownloadServlet extends HttpServlet {
 					outStream.write(buffer, 0, bytesRead);
 				}				
 			} catch(IOException ioExObj) {
-				System.out.println("Exception While Performing The I/O Operation?= " + ioExObj.getMessage());
+				logger.error("Exception While Performing The I/O Operation?= " + ioExObj.getMessage());
 			} finally {				
 				if (inputStream != null) {
 					inputStream.close();

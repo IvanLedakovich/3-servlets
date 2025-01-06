@@ -25,9 +25,7 @@ public class AppServletContextListener implements ServletContextListener {
     }
 
     @Override
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-
-    }
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {}
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {

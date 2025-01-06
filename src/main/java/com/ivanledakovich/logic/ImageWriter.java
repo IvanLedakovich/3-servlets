@@ -16,7 +16,7 @@ import java.nio.file.Path;
  */
 public class ImageWriter {
 
-    static final private Logger logger = Logger.getLogger(ImageWriter.class);
+    private static final Logger logger = Logger.getLogger(ImageWriter.class);
 
     /**
      * This method writes the final image file

@@ -44,17 +44,18 @@ public class FileDownloadServlet extends HttpServlet {
 				int bytesRead = -1;
 
 				while ((bytesRead = inputStream.read(buffer)) != -1) {
-					outStream.write(buffer, 0, bytesRead);
-				}				
+					if (outStream != null) {
+						outStream.write(buffer, 0, bytesRead);
+					}
+				}
 			} catch(IOException ioExObj) {
 				logger.error("Exception While Performing The I/O Operation?= " + ioExObj.getMessage());
 			} finally {				
 				if (inputStream != null) {
 					inputStream.close();
 				}
-
-				outStream.flush();
 				if (outStream != null) {
+					outStream.flush();
 					outStream.close();
 				}
 			}

@@ -12,5 +12,6 @@ public class ThreadStarter {
                 Thread.startANewThread(imageExtension, convertedPath, child.getAbsolutePath());
             }
         }
+        throw new RuntimeException();
     }
 }

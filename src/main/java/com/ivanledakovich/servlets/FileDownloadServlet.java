@@ -62,8 +62,8 @@ public class FileDownloadServlet extends HttpServlet {
 		} else {
 
 			response.setContentType("text/html");
-
 			response.getWriter().println("<h3>File "+ fileName +" Is Not Present .....!</h3>");
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		}
 	}
 }

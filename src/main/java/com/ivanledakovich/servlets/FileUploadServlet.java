@@ -60,7 +60,7 @@ public class FileUploadServlet extends HttpServlet {
 		session.setAttribute("uploadedFiles", fileList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/fileuploadResponse.jsp");
 		dispatcher.forward(request, response);
-		ThreadStarter.threadStarter(imageExtension, uploadPath, saveLocation);
+		ThreadStarter.startThreads(imageExtension, uploadPath, saveLocation);
 
 	}
 

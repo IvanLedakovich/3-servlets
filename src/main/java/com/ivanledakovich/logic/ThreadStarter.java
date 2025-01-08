@@ -4,7 +4,7 @@ import java.io.File;
 
 public class ThreadStarter {
 
-    public static void threadStarter(String imageExtension, String uploadPath, String convertedPath) {
+    public static void startThreads(String imageExtension, String uploadPath, String convertedPath) {
         File dir = new File(uploadPath);
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {

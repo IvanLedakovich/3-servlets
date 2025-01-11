@@ -41,7 +41,7 @@ public class UploadedFilesServlet extends HttpServlet {
 
 		UploadDetail details = null;
 		File[] allFiles = fileUploadDirectory.listFiles();
-		List<UploadDetail> fileList = new ArrayList<UploadDetail>();		
+		List<UploadDetail> fileList = new ArrayList<UploadDetail>();
 
 		for (File file : allFiles) {
 			details = new UploadDetail();

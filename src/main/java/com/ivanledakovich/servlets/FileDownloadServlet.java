@@ -20,10 +20,7 @@ public class FileDownloadServlet extends HttpServlet {
 	private static final String UPLOAD_DIR = "uploadedFiles";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String fileName = request.getParameter("fileName"),
-				applicationPath = getServletContext().getRealPath(""),
-				downloadPath = applicationPath + File.separator + UPLOAD_DIR,
-				filePath = downloadPath + File.separator + fileName;
+		String fileName = request.getParameter("fileName"), applicationPath = getServletContext().getRealPath(""), downloadPath = applicationPath + File.separator + UPLOAD_DIR, filePath = downloadPath + File.separator + fileName;
 
 		File file = new File(filePath);
 		OutputStream outStream = null;
@@ -50,7 +47,7 @@ public class FileDownloadServlet extends HttpServlet {
 				}
 			} catch(IOException ioExObj) {
 				logger.error("Exception While Performing The I/O Operation?= " + ioExObj.getMessage());
-			} finally {				
+			} finally {
 				if (inputStream != null) {
 					inputStream.close();
 				}
@@ -60,7 +57,6 @@ public class FileDownloadServlet extends HttpServlet {
 				}
 			}
 		} else {
-
 			response.setContentType("text/html");
 			response.getWriter().println("<h3>File "+ fileName +" Is Not Present .....!</h3>");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);

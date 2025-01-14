@@ -61,7 +61,7 @@ public class FileUploadServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/fileuploadResponse.jsp");
 		dispatcher.forward(request, response);
 		ThreadStarter.startThreads(imageExtension, uploadPath, saveLocation);
-
+		response.getWriter().append("Input: " + imageExtension + " " + saveLocation);
 	}
 
 	private String extractFileName(Part part) {

@@ -1,5 +1,7 @@
 package com.ivanledakovich.logic;
 
+import com.ivanledakovich.models.Parameters;
+
 import java.io.File;
 
 public class ThreadStarter {
@@ -12,6 +14,12 @@ public class ThreadStarter {
 				Thread.startANewThread(imageExtension, convertedPath, child.getAbsolutePath());
 			}
 		}
-		throw new RuntimeException();
+	}
+
+	public static void main(String[] args) {
+		Parameters parameters = ArgumentsParser.parseArguments(args);
+		for (int i = 0; i < parameters.getAllTextFilePaths().size(); i++) {
+			Thread.startANewThread(parameters.getImageFileType(), parameters.getImageSaveLocation(), parameters.getSingleTextFilePath(i));
+		}
 	}
 }

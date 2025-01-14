@@ -21,10 +21,6 @@ public class UploadedFilesServlet extends HttpServlet {
 	private static final String CONVERTED_DIR = "convertedFiles";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		handleRequest(request, response);
-	}
-
-	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String applicationPath = getServletContext().getRealPath(""),
 				uploadPath = applicationPath + File.separator + UPLOAD_DIR,

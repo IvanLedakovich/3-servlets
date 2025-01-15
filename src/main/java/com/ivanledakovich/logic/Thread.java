@@ -19,6 +19,8 @@ public class Thread extends java.lang.Thread {
 		this.textFilePath = textFilePath;
 	}
 
+	public Thread() {}
+
 	/**
 	 * This method contains logic that is executed when a new thread is started
 	 */
@@ -36,7 +38,7 @@ public class Thread extends java.lang.Thread {
 	 * @param imageSaveLocation the desired path for file saving
 	 * @param textFilePath the path to the initial .txt file
 	 */
-	public static void startANewThread(String imageFileType, String imageSaveLocation, String textFilePath) {
+	public void startANewThread(String imageFileType, String imageSaveLocation, String textFilePath) {
 		Thread thread = new Thread(imageFileType, imageSaveLocation, textFilePath);
 		thread.start();
 	}

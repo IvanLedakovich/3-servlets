@@ -25,64 +25,64 @@ import static org.mockito.Mockito.*;
 
 public class FileUploadServletTest {
 
-    @InjectMocks
-    private FileUploadServlet servlet;
+	@InjectMocks
+	private FileUploadServlet servlet;
 
-    @Mock
-    private HttpServletRequest request;
+	@Mock
+	private HttpServletRequest request;
 
-    @Mock
-    private HttpServletResponse response;
+	@Mock
+	private HttpServletResponse response;
 
-    @Mock
-    private HttpSession session;
+	@Mock
+	private HttpSession session;
 
-    @Mock
-    private Part part;
+	@Mock
+	private Part part;
 
-    @Mock
-    private RequestDispatcher dispatcher;
+	@Mock
+	private RequestDispatcher dispatcher;
 
-    @Mock
-    private ServletConfig servletConfig;
+	@Mock
+	private ServletConfig servletConfig;
 
-    @Mock
-    private ServletContext servletContext;
+	@Mock
+	private ServletContext servletContext;
 
-    private StringWriter responseWriter;
+	private StringWriter responseWriter;
 
-    @Before
-    public void setUp() throws ServletException {
-        MockitoAnnotations.initMocks(this);
-        responseWriter = new StringWriter();
+	@Before
+	public void setUp() throws ServletException {
+		MockitoAnnotations.initMocks(this);
+		responseWriter = new StringWriter();
 
-        when(servletConfig.getServletContext()).thenReturn(servletContext);
-        servlet.init(servletConfig);
-    }
+		when(servletConfig.getServletContext()).thenReturn(servletContext);
+		servlet.init(servletConfig);
+	}
 
-    @Test
-    public void verifyDoPostResponseIsCorrect() throws ServletException, IOException {
-        // given
-        when(request.getParameter("imageExtension")).thenReturn(".jpg");
-        when(request.getParameter("saveLocation")).thenReturn("/save/location");
-        when(request.getParts()).thenReturn(Collections.singletonList(part));
-        when(part.getHeader("content-disposition")).thenReturn("form-data; name=\"file\"; filename=\"test.jpg\"");
-        when(part.getSize()).thenReturn(1024L);
-        doNothing().when(part).write(anyString());
+	@Test
+	public void verifyDoPostResponseIsCorrect() throws ServletException, IOException {
+		// given
+		when(request.getParameter("imageExtension")).thenReturn(".jpg");
+		when(request.getParameter("saveLocation")).thenReturn("/save/location");
+		when(request.getParts()).thenReturn(Collections.singletonList(part));
+		when(part.getHeader("content-disposition")).thenReturn("form-data; name=\"file\"; filename=\"test.jpg\"");
+		when(part.getSize()).thenReturn(1024L);
+		doNothing().when(part).write(anyString());
 
-        when(response.getWriter()).thenReturn(new PrintWriter(responseWriter));
+		when(response.getWriter()).thenReturn(new PrintWriter(responseWriter));
 
-        when(request.getSession()).thenReturn(session);
-        when(request.getRequestDispatcher("/fileuploadResponse.jsp")).thenReturn(dispatcher);
+		when(request.getSession()).thenReturn(session);
+		when(request.getRequestDispatcher("/fileuploadResponse.jsp")).thenReturn(dispatcher);
 
-        // when
-        servlet.doPost(request, response);
+		// when
+		servlet.doPost(request, response);
 
-        // then
-        assertEquals("Input: .jpg /save/location", responseWriter.toString().trim());
+		// then
+		assertEquals("Input: .jpg /save/location", responseWriter.toString().trim());
 
-        verify(response).getWriter();
-        verify(dispatcher).forward(request, response);
-        verify(session).setAttribute(eq("uploadedFiles"), anyList());
-    }
+		verify(response).getWriter();
+		verify(dispatcher).forward(request, response);
+		verify(session).setAttribute(eq("uploadedFiles"), anyList());
+	}
 }
